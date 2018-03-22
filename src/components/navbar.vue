@@ -26,23 +26,23 @@
           name: '首页',
           path: 'homepage',
           key: 1,
-          src:'../static/img/index1.png'
+          src:'static/img/index1.png'
         },{
           name: '目的地',
           path: 'destination',
           key: 2,
-          src:'../static/img/destnation0.png'
+          src:'static/img/destnation0.png'
         },{
-          name: '发现',
+          name: '攻略',
           path: 'find',
           key: 3,
-          src:'../static/img/find0.png'
+          src:'static/img/find0.png'
 
         },{
           name: '我的',
           path: 'my',
           key: 4,
-          src:'../static/img/me0.png'
+          src:'static/img/me0.png'
         }],
         tab: '',
       }
@@ -51,28 +51,28 @@
       handleClick:function(e) {
         this.tab = e;
         if (this.tab==1) {
-          this.tabs[0].src='../static/img/index1.png'
-          this.tabs[1].src='../static/img/destnation0.png'
-          this.tabs[2].src='../static/img/find0.png'
-          this.tabs[3].src='../static/img/me0.png'
+          this.tabs[0].src='static/img/index1.png'
+          this.tabs[1].src='static/img/destnation0.png'
+          this.tabs[2].src='static/img/find0.png'
+          this.tabs[3].src='static/img/me0.png'
         }
         else if(this.tab==2){
-          this.tabs[0].src='../static/img/index0.png'
-          this.tabs[1].src='../static/img/destnation1.png'
-          this.tabs[2].src='../static/img/find0.png'
-          this.tabs[3].src='../static/img/me0.png'
+          this.tabs[0].src='static/img/index0.png'
+          this.tabs[1].src='static/img/destnation1.png'
+          this.tabs[2].src='static/img/find0.png'
+          this.tabs[3].src='static/img/me0.png'
         }
         else if(this.tab==3){
-          this.tabs[0].src='../static/img/index0.png'
-          this.tabs[1].src='../static/img/destnation0.png'
-          this.tabs[2].src='../static/img/find1.png'
-          this.tabs[3].src='../static/img/me0.png'
+          this.tabs[0].src='static/img/index0.png'
+          this.tabs[1].src='static/img/destnation0.png'
+          this.tabs[2].src='static/img/find1.png'
+          this.tabs[3].src='static/img/me0.png'
         }
         else if(this.tab==4){
-          this.tabs[0].src='../static/img/index0.png'
-          this.tabs[1].src='../static/img/destnation0.png'
-          this.tabs[2].src='../static/img/find0.png'
-          this.tabs[3].src='../static/img/me1.png'
+          this.tabs[0].src='static/img/index0.png'
+          this.tabs[1].src='static/img/destnation0.png'
+          this.tabs[2].src='static/img/find0.png'
+          this.tabs[3].src='static/img/me1.png'
         }
       },
     },
@@ -89,9 +89,9 @@
     bottom:0;
     left:0;
     right:0;
-    padding-bottom:.5rem;
-    padding-top:.5rem;
+    padding-top:.8rem;
     border-top:1px solid #e9e9e9;
+    height:10%;
     .active{
       .wrapper{
         li:last-child{
@@ -103,6 +103,8 @@
       li{
         font-weight:bold;
         font-size:0.7rem;
+      }
+      li:last-child{
       }
       li:first-child{
         img{

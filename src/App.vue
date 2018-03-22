@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import HomePage from '@/components/homepage'
 import Navbar from '@/components/navbar'
+import Login from '@/components/login'
+import Forget from '@/components/forget'
+import Register from '@/components/register'
 export default {
   name: 'app',
   components:{
-    Navbar
+   HomePage,Navbar,Login,Forget,Register
   }
-}
+} 
 </script>
 
 <style lang="scss">
@@ -26,6 +29,7 @@ export default {
   width:100%;
   height:100%;
   background: #f2f2f2;
+  font-weight:bold;
   user-select:none;
 }
 </style>
