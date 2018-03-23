@@ -28,7 +28,7 @@
 		methods:{
 			prev:function(){
 				this.$router.push({
-					path:'/index/my'
+					path:'/index/my' 
 				})
 			}
 		}

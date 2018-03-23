@@ -86,7 +86,7 @@
       }
       .intro{
         margin-top: 0.4rem;
-        font-size:0.2rem;
+        font-size:0.4rem;
         color:#888888;
         font-weight:bold;
         padding-bottom:0.6rem;

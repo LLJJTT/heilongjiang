@@ -55,6 +55,10 @@
             src:'static/img/fengye.jpeg'
           },{
             src:'static/img/hupo.jpeg'
+          },{
+            src:'static/img/jiguang.jpeg'
+          },{
+            src:'static/img/shuye.jpeg'
           }
         ],
         

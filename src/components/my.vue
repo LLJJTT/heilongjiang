@@ -52,6 +52,7 @@
     },
     methods:{
       goLogin:function(){
+        console.log(this.centerDialogVisible)
         var that  = this
         if (this.userStatus!=''&&this.userStatus!=null&&this.userStatus!=undefined) {
           this.$notify({
@@ -66,6 +67,7 @@
               that.login = '去登录'
               that.centerDialogVisible=false
               that.head_imgSrc = 'static/img/head_img_unlogin.png'
+              that.userStatus = ''
             }
           })
         }
