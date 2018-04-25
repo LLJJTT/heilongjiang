@@ -12,8 +12,8 @@
     </div>
 <!-- 搜索 -->
     <div id="search">
-        <el-input placeholder="请输入关键字搜索" v-model="input5" class="input-with-select">
-          <el-button slot="append" icon="el-icon-search"></el-button>
+        <el-input placeholder="请输入关键字搜索" v-model="searchVal" class="input-with-select">
+          <el-button @click="goSearch" slot="append" icon="el-icon-search"></el-button>
         </el-input>
     </div>
 <!-- 下一站推荐 -->
@@ -43,11 +43,12 @@
 </template>
 <script>
   import axios from 'axios'
+  import { Toast } from 'mint-ui'
   export default{
     data(){
       return{
         recommendAjax:'http://112.74.63.14/interface/recommend.php',
-        input5:'',
+        searchVal:'',
         // 轮播图数据
         moveImg:[{
             src:'static/img/shanshui.jpeg'
@@ -95,6 +96,23 @@
             this.swiperdata.push(res.data[i])
           }
         })
+      },
+      // 搜索
+      goSearch(){
+        if (this.searchVal=='') {
+          Toast({
+            message:'请输入内容',
+            position:'middle',
+            duration:1000
+          })
+        }
+        else{
+          Toast({
+            message:'跳转',
+            position:'middle',
+            duration:1000
+          })
+        }
       }
     },
     created:function(){
