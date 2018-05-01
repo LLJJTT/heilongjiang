@@ -23,7 +23,7 @@
     data(){
       return{
        searchVal:'',
-       searchAjaxUrl:'http://localhost/TourismApp/interface/search.php',
+       searchAjaxUrl:'http://112.74.63.14/interface/search.php',
        listData:[],
        showResult:'display:block'
       }
