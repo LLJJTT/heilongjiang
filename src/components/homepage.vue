@@ -12,8 +12,8 @@
     </div>
 <!-- 搜索 -->
     <div id="search">
-        <el-input placeholder="请输入关键字搜索" v-model="searchVal" class="input-with-select">
-          <el-button @click="goSearch" slot="append" icon="el-icon-search"></el-button>
+        <el-input @focus="goSearch" placeholder="请输入关键字搜索" v-model="searchVal" class="input-with-select">
+          <el-button  slot="append" icon="el-icon-search"></el-button>
         </el-input>
     </div>
 <!-- 下一站推荐 -->
@@ -99,20 +99,9 @@
       },
       // 搜索
       goSearch(){
-        if (this.searchVal=='') {
-          Toast({
-            message:'请输入内容',
-            position:'middle',
-            duration:1000
-          })
-        }
-        else{
-          Toast({
-            message:'跳转',
-            position:'middle',
-            duration:1000
-          })
-        }
+        this.$router.push({
+          path:'/index/search'
+        })
       }
     },
     created:function(){

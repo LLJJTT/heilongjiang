@@ -6,6 +6,7 @@ import My from '@/components/my'
 import Index from '@/components/index'
 import Navbar from '@/components/navbar'
 import HomePage from '@/components/homepage'
+import Search from '@/components/search'
 import Login from '@/components/login'
 import Forget from '@/components/forget'
 import Register from '@/components/register'
@@ -55,6 +56,11 @@ export default new Router({
           path: 'destination',
           name: 'destination',
           component: Destination
+        },
+        {
+          path: 'search',
+          name: 'search',
+          component: Search
         },
         {
           path:'find',

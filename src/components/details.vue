@@ -4,7 +4,7 @@
 		<div id="head">
 			<!-- <i @click="goBack" class="el-icon-back prev"></i> -->
 			<span class="name">{{detailData.name}}</span>
-			<i @click="collect" :class="col"></i>
+			<i :style="showMap"  @click="collect" :class="col"></i>
 		</div>
 		<!-- 轮播图 -->
     <div id="swiper">
@@ -24,6 +24,14 @@
 			  	<li><i>景区地址：</i>{{detailData.address}}</li>
 			  </div>
   		</el-card>
+  		<el-card :style="showMap" class="box-card">
+    		<div slot="header">
+			    <span>景点地图</span>
+			  </div>
+			  <div  id="allmap" ref="allmap">
+			  	
+			  </div>
+  		</el-card>
   		<el-card class="box-card">
     		<div slot="header">
 			    <span>景点介绍</span>
@@ -32,6 +40,7 @@
 			  	<li>{{detailData.introduce}}</li>
 			  </div>
   		</el-card>
+
     </div>
     <el-dialog
       title="立即去登录"
@@ -46,14 +55,14 @@
     </el-dialog>
 	</div>
 </template>
-
+<script src="http://api.map.baidu.com/api?v=2.0&ak=fQ4IXEgQRsXQyr1wzSKIsiRGgDedH8s9"></script>
 <script>
 	import axios from 'axios'
 	export default{
 		data(){
 			return{
         centerDialogVisible: false,
-        detailData:[],
+        detailData:{},
         collectStatus:false,
         user_id:'',
         scenery_id:'',
@@ -61,8 +70,8 @@
         cancelUrl:'http://112.74.63.14/interface/cancelcollection.php',
         ifcollectUrl:'http://112.74.63.14/interface/ifcollect.php',
         collectionType:'',
-        col:'el-icon-star-off collection'
-
+        col:'el-icon-star-off collection',
+        showMap:'display:block'
       }
 		},
 		methods:{
@@ -234,13 +243,31 @@
 						console.log(error)
 					})
 				}
+			},
+			// 加载地图
+			loadMap(){
+				let map =new BMap.Map(this.$refs.allmap); // 创建Map实例  
+				var point = new BMap.Point(Number(this.detailData.longitude), Number(this.detailData.latitude)); 
+	      map.centerAndZoom(point, 14);// 初始化地图,设置中心点坐标和地图级别  
+	      map.addControl(new BMap.MapTypeControl({//添加地图类型控件  
+	        mapTypes:[  
+	          BMAP_NORMAL_MAP,  
+	          BMAP_HYBRID_MAP  
+	        ]}));  
+	      map.setCurrentCity(this.detailData.city);// 设置地图显示的城市 此项是必须设置的  
+	      map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放  
 			}
 		},
 		created:function(){
 			// 获取传惨数据
 			this.detailData = this.$route.params.detailData
 			this.collectionType = this.$route.params.collectionType
-			// console.log(this.detailData)
+			if (this.collectionType!='des') {
+				this.showMap = 'display:none'
+			}
+			else{
+				this.showMap = 'display:block'
+			}
 			this.scenery_id = this.detailData.scenery_id
 			this.startNum()
 			var userId = sessionStorage.getItem('username')
@@ -248,6 +275,9 @@
 			if (userId!=''&&userId!=null&userId!=undefined) {
 				this.ifCollection()
 			}
+		},
+		mounted(){
+			this.loadMap()
 		}
 	}
 </script>
@@ -329,6 +359,12 @@
 				li{
 					color:#9fa6ab;
 				}
+			}
+			#allmap{
+				width: 100%;
+				height: 10rem;
+				background: #000;
+				overflow: hidden;
 			}
   	}
 	}

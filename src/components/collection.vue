@@ -92,7 +92,7 @@
 					.catch((error)=>{
 						console.log(error)
 					})
-				}
+				} 
 				else{
 					this.list_hidden = true
 				}

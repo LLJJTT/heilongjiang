@@ -49,7 +49,6 @@
 				history.back();
 			},
 			goDetail:function(item){
-				console.log(item)
 				this.$router.push({
 					name:'details',
 					params:{ 
